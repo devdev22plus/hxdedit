@@ -1,0 +1,1 @@
+gcc main.cpp -lstdc++ -o test.exe
