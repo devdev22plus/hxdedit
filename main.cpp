@@ -28,16 +28,16 @@ int main(int argc, const char * argv[])
 	const char * szFind = argv[3];
 	const char * szReplace = argv[4];
 
-	if ( strcmp(szReplace, "none") != 0 )
-	{
-		/* if ( strlen(szFind) != strlen(szReplace) ) */
-		if ( strlen(szFind) < strlen(szReplace) )
-		{
-			/* std::cout << "find and replace length not same" << std::endl; */
-			std::cout << "can't replace " << szReplace << " because length is over find" << std::endl;
-			return 0;
-		}
-	}
+	/* if ( strcmp(szReplace, "none") != 0 ) */
+	/* { */
+	/* 	/1* if ( strlen(szFind) != strlen(szReplace) ) *1/ */
+	/* 	if ( strlen(szFind) < strlen(szReplace) ) */
+	/* 	{ */
+	/* 		/1* std::cout << "find and replace length not same" << std::endl; *1/ */
+	/* 		std::cout << "can't replace " << szReplace << " because length is over find" << std::endl; */
+	/* 		return 0; */
+	/* 	} */
+	/* } */
 
 	/* const char * szInputFile = "CacheServer.exe"; */
 	/* const char * szOutputFile = "cacheserver2.exe"; */
@@ -133,8 +133,13 @@ int main(int argc, const char * argv[])
 				{
 					for(int i = 0 ; i < (int)strlen(szReplace) ; ++i)
 					{
+						if ( szContent[nFoundIndex + i] == '\0' )
+							break;
+
 						szContent[nFoundIndex + i] = szReplace[i];
 					}
+					
+					std::cout << "-> result " <<  (const char*)&szContent[nFoundIndex] << std::endl;
 				}
 
 				break;
