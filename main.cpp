@@ -48,11 +48,11 @@ int main(int argc, const char * argv[])
 		std::cout << "Start searching and replace hex..." << std::endl;
 
 		fseek(pFile, 0 , SEEK_END);
-		auto fileSize = ftell(pFile);
+		int fileSize = ftell(pFile);
 		fseek(pFile, 0, SEEK_SET);
 
 		char * szContent = new char[fileSize];
-		auto size = fread( szContent, sizeof(char) , fileSize, pFile );
+		int size = fread( szContent, sizeof(char) , fileSize, pFile );
 
 		fclose(pFile);
 
